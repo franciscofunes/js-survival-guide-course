@@ -108,3 +108,47 @@ try {
 } finally {
   console.log("always works");
 }
+
+/*
+ *  Chapter 4: Variables
+ */
+
+// difference between let var and const
+
+// excution context
+var g = "global";
+
+function app() {
+  g2 = "global";
+  var l = "local";
+  console.log(g); // global
+}
+
+console.log(l); // undefined
+console.log(g2); // global
+
+app();
+
+// Hoisting
+
+// var
+
+var x = "a";
+
+function app() {
+  if (true) {
+    var x = "b";
+  }
+
+  var x = "b";
+}
+
+// var it keeps very hard to keep the scope of variables not recommended
+
+if (true) {
+  // block
+  let x = 23;
+  const y = 28;
+}
+
+// when it comes to variables it's better to use let and const
