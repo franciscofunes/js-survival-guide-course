@@ -74,5 +74,7 @@ var x = true == "true"; // true
 var x = "23" === 23; // false
 
 /*
- *  Ternary
+ *  Ternary operator
  */
+
+var x = truthy ? 1 : 2;
