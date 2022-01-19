@@ -51,3 +51,28 @@ console.log(!!"hi"); // true
 console.log(!!0); // false
 
 // !! you can use it to convert to boolean if you have doubts about the value
+
+/*
+ *  Operators
+ */
+
+// ! not operator
+var x = !true; // false
+var x = !!true; // true
+var x = !!!true; // false
+var x = !!!!true; // true
+
+// && logical and operator
+var x = true && false; // false
+// || logical or operator
+var x = true || false; // true
+
+// two different equality operators
+// abstract comparison operators, search equality only in the same type
+var x = true == "true"; // true
+// strict comparison operators, search equality both the type and the value
+var x = "23" === 23; // false
+
+/*
+ *  Ternary
+ */
