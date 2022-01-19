@@ -152,3 +152,89 @@ if (true) {
 }
 
 // when it comes to variables it's better to use let and const
+
+/*
+ *  Chapter 5: Functions
+ */
+
+// a function is a piece of code that takes an input and returns an output
+
+function hello(input) {
+  const output = "hello " + input;
+  return output;
+}
+
+console.log(hello("world"));
+
+// arrow syntax, modern javascript
+
+const hello = (input) => output;
+
+// Anonymous vs. named
+
+function someName() {
+  // do something
+}
+
+const someNameFunction = () => {
+  // do something
+};
+
+// javscript supports higher order functions
+
+// we can provide a function as an argument to another function
+
+function cool(fun) {
+  fun();
+}
+
+cool(() => console.log("hello"));
+
+// javascript event loop and callbacks
+// often used anonymous functions as arguments to other functions you will call later after some asynchronous code has been executed
+
+//you can define new functions inside other functions
+
+function outer() {
+  function inner() {
+    // do something
+  }
+}
+
+// closures
+
+function outer() {
+  const fish = "cod";
+  let count = 0;
+  function inner() {
+    count++;
+    return `${fish} ${count}`;
+  }
+
+  return inner;
+}
+
+// what makes this special is that the inner function has access to the variables of the outer function
+
+const fun = outer();
+
+console.log(fun()); // cod 1
+console.log(fun()); // cod 2
+console.log(fun()); // cod 3
+
+// a closure its very similar to a class instance
+// you can have a function that can contains a state and you have an inner function that can operate and change the state
+// the same way a class instance have some properties and methods that can change that properties
+// class keyword is just sintax sugar for functions and closures
+class Outer {
+  constructor(fish = "cod", count = 0) {}
+
+  inner() {
+    this.count++;
+    return `${this.fish} ${this.count}`;
+  }
+}
+
+const instance = new Outer();
+
+inner(); // cod 1
