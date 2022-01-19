@@ -44,5 +44,10 @@ console.log(true); // true
 console.log(!!{}); // true
 console.log(!![]); // true
 
+// you need to watch off with strings and numbers
 console.log(!!""); // false
 console.log(!!"hi"); // true
+
+console.log(!!0); // false
+
+// !! you can use it to convert to boolean if you have doubts about the value
