@@ -238,3 +238,59 @@ class Outer {
 const instance = new Outer();
 
 inner(); // cod 1
+
+/*
+ *  Chapter 6. : Objects
+ */
+
+// Object is a data structure that lets you associated a collections of key value pairs
+
+// you instantiate an object by using the new keyword
+const obj = new Object();
+
+obj.name = "John";
+
+// you can also use the object literal syntax
+
+const obj = {
+  name: "John",
+  age: 23,
+  // functions can be used as values inside an object
+  // we can use properties of the object using keyword this
+  greet: function () {
+    console.log(this);
+  },
+  greet2: () => {
+    console.log(this);
+  },
+};
+
+// you can mutate values in an object even is declared as a const variable
+obj["name"] = "Jane";
+
+// this refers to the object that is define on
+obj.greet(); // { name: 'John', age: 23, greet: [Function: greet], greet2: [Function: greet2] }
+// when it comes to the arrow it doesn't have access to the this keyword
+obj.greet2(); // {}
+
+const clown = {
+  name: "clown",
+  age: 23,
+};
+
+const ghost = {
+  name: "ghost",
+  age: 23,
+};
+
+function hello() {
+  return this.face;
+}
+
+const result = hello.call();
+
+console.log(result); // undefined
+
+const result2 = hello.call(clown);
+
+console.log(result); // clown
