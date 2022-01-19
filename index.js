@@ -78,3 +78,20 @@ var x = "23" === 23; // false
  */
 
 var x = truthy ? 1 : 2;
+
+/*
+ * Switch statement
+ */
+
+var expression = "dog";
+
+switch (expression) {
+  case "cat":
+    console.log("meow");
+    break;
+  case "dog":
+    console.log("woof");
+    break;
+  default:
+    console.log("unknown");
+}
