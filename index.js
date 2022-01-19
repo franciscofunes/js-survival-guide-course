@@ -95,3 +95,16 @@ switch (expression) {
   default:
     console.log("unknown");
 }
+
+/*
+ * Try / Catch
+ */
+
+try {
+  throw new Error();
+  console.log("works");
+} catch (e) {
+  console.log("Broke!");
+} finally {
+  console.log("always works");
+}
