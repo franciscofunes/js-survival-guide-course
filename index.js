@@ -11,11 +11,11 @@ function x() {
   return null;
 }
 
-let x = {}; // define
+let x2 = { foo: "var" }; // define
 
-x["foo"] = "bar"; // mutate
+x2["foo"] = "bar"; // mutate
 
-console.log(x); // { foo: 'bar' }
+console.log(x2); // { foo: 'bar' }
 
 /*
  *    primitive wrapper objects
@@ -39,18 +39,16 @@ if (truthy) {
   console.log("falsy");
 }
 
-// every it's an object it's truthy
+// every thing it's an object it's truthy
 console.log(true); // true
 console.log(!!{}); // true
 console.log(!![]); // true
 
 // you need to watch off with strings and numbers
+// !! you can use it to convert to boolean if you have doubts about the value
 console.log(!!""); // false
 console.log(!!"hi"); // true
-
 console.log(!!0); // false
-
-// !! you can use it to convert to boolean if you have doubts about the value
 
 /*
  *  Operators
@@ -64,13 +62,15 @@ var x = !!!!true; // true
 
 // && logical and operator
 var x = true && false; // false
+
 // || logical or operator
 var x = true || false; // true
 
 // two different equality operators
 // abstract comparison operators, search equality only in the same type
 var x = true == "true"; // true
-// strict comparison operators, search equality both the type and the value
+
+// strict comparison operators, search equality both the type and the value, always use strict comparison
 var x = "23" === 23; // false
 
 /*
@@ -115,7 +115,7 @@ try {
 
 // difference between let var and const
 
-// excution context
+// execution context
 var g = "global";
 
 function app() {
@@ -130,28 +130,22 @@ console.log(g2); // global
 app();
 
 // Hoisting
-
-// var
-
 var x = "a";
 
+// var it keeps very hard to keep the scope of variables not recommended
 function app() {
   if (true) {
     var x = "b";
   }
-
   var x = "b";
 }
 
-// var it keeps very hard to keep the scope of variables not recommended
-
+// when it comes to variables it's better to use let and const
 if (true) {
   // block
   let x = 23;
   const y = 28;
 }
-
-// when it comes to variables it's better to use let and const
 
 /*
  *  Chapter 5: Functions
@@ -167,11 +161,9 @@ function hello(input) {
 console.log(hello("world"));
 
 // arrow syntax, modern javascript
+const hello2 = (input) => output;
 
-const hello = (input) => output;
-
-// Anonymous vs. named
-
+// Anonymous vs. named functions
 function someName() {
   // do something
 }
@@ -180,8 +172,7 @@ const someNameFunction = () => {
   // do something
 };
 
-// javscript supports higher order functions
-
+// javascript supports higher order functions
 // we can provide a function as an argument to another function
 
 function cool(fun) {
@@ -194,7 +185,6 @@ cool(() => console.log("hello"));
 // often used anonymous functions as arguments to other functions you will call later after some asynchronous code has been executed
 
 //you can define new functions inside other functions
-
 function outer() {
   function inner() {
     // do something
@@ -202,7 +192,6 @@ function outer() {
 }
 
 // closures
-
 function outer() {
   const fish = "cod";
   let count = 0;
@@ -210,12 +199,10 @@ function outer() {
     count++;
     return `${fish} ${count}`;
   }
-
   return inner;
 }
 
 // what makes this special is that the inner function has access to the variables of the outer function
-
 const fun = outer();
 
 console.log(fun()); // cod 1
@@ -225,7 +212,7 @@ console.log(fun()); // cod 3
 // a closure its very similar to a class instance
 // you can have a function that can contains a state and you have an inner function that can operate and change the state
 // the same way a class instance have some properties and methods that can change that properties
-// class keyword is just sintax sugar for functions and closures
+// class keyword is just syntactic sugar for functions and closures
 class Outer {
   constructor(fish = "cod", count = 0) {}
 
@@ -244,15 +231,13 @@ inner(); // cod 1
  */
 
 // Object is a data structure that lets you associated a collections of key value pairs
-
 // you instantiate an object by using the new keyword
 const obj = new Object();
 
 obj.name = "John";
 
 // you can also use the object literal syntax
-
-const obj = {
+const obj2 = {
   name: "John",
   age: 23,
   // functions can be used as values inside an object
@@ -266,12 +251,12 @@ const obj = {
 };
 
 // you can mutate values in an object even is declared as a const variable
-obj["name"] = "Jane";
+obj2["name"] = "Jane";
 
 // this refers to the object that is define on
-obj.greet(); // { name: 'John', age: 23, greet: [Function: greet], greet2: [Function: greet2] }
+obj2.greet(); // { name: 'John', age: 23, greet: [Function: greet], greet2: [Function: greet2] }
 // when it comes to the arrow it doesn't have access to the this keyword
-obj.greet2(); // {}
+obj2.greet2(); // {}
 
 const clown = {
   name: "clown",
